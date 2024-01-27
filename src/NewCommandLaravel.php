@@ -65,8 +65,6 @@ class NewCommandLaravel extends Command
     /**
      * Interact with the user before validating the input.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function interact(InputInterface $input, OutputInterface $output)
@@ -117,10 +115,10 @@ class NewCommandLaravel extends Command
 
         if (! $input->getOption('phpunit') && ! $input->getOption('pest')) {
             $input->setOption('pest', select(
-                    label: 'Which testing framework do you prefer?',
-                    options: ['Pest', 'PHPUnit'],
-                    default: 'Pest',
-                ) === 'Pest');
+                label: 'Which testing framework do you prefer?',
+                options: ['Pest', 'PHPUnit'],
+                default: 'Pest',
+            ) === 'Pest');
         }
 
         if (! $input->getOption('git') && $input->getOption('github') === false && Process::fromShellCommandline('git --version')->run() === 0) {
@@ -130,10 +128,6 @@ class NewCommandLaravel extends Command
 
     /**
      * Execute the command.
-     *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -241,10 +235,6 @@ class NewCommandLaravel extends Command
     /**
      * Configure the default database connection.
      *
-     * @param  string  $directory
-     * @param  string  $database
-     * @param  string  $name
-     * @param  bool  $migrate
      * @return void
      */
     protected function configureDefaultDatabaseConnection(string $directory, string $database, string $name, bool $migrate)
@@ -316,9 +306,6 @@ class NewCommandLaravel extends Command
 
     /**
      * Determine if the application is using Laravel 11 or newer.
-     *
-     * @param  string  $directory
-     * @return bool
      */
     public function usingLaravel11OrNewer(string $directory): bool
     {
@@ -331,9 +318,6 @@ class NewCommandLaravel extends Command
 
     /**
      * Comment the irrelevant database configuration entries for SQLite applications.
-     *
-     * @param  string  $directory
-     * @return void
      */
     protected function commentDatabaseConfigurationForSqlite(string $directory): void
     {
@@ -361,7 +345,6 @@ class NewCommandLaravel extends Command
     /**
      * Uncomment the relevant database configuration entries for non SQLite applications.
      *
-     * @param  string  $directory
      * @return void
      */
     protected function uncommentDatabaseConfiguration(string $directory)
@@ -390,9 +373,6 @@ class NewCommandLaravel extends Command
     /**
      * Install Laravel Breeze into the application.
      *
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function installBreeze(string $directory, InputInterface $input, OutputInterface $output)
@@ -417,9 +397,6 @@ class NewCommandLaravel extends Command
     /**
      * Install Laravel Jetstream into the application.
      *
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function installJetstream(string $directory, InputInterface $input, OutputInterface $output)
@@ -446,8 +423,6 @@ class NewCommandLaravel extends Command
     /**
      * Determine the default database connection.
      *
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return string
      */
     protected function promptForDatabaseOptions(string $directory, InputInterface $input)
@@ -479,7 +454,6 @@ class NewCommandLaravel extends Command
     /**
      * Determine the stack for Breeze.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return void
      */
     protected function promptForBreezeOptions(InputInterface $input)
@@ -524,7 +498,6 @@ class NewCommandLaravel extends Command
     /**
      * Determine the stack for Jetstream.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return void
      */
     protected function promptForJetstreamOptions(InputInterface $input)
@@ -588,8 +561,6 @@ class NewCommandLaravel extends Command
     /**
      * Install Pest into the application.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function installPest(string $directory, InputInterface $input, OutputInterface $output)
@@ -621,9 +592,6 @@ class NewCommandLaravel extends Command
     /**
      * Create a Git repository and commit the base Laravel skeleton.
      *
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function createRepository(string $directory, InputInterface $input, OutputInterface $output)
@@ -643,10 +611,6 @@ class NewCommandLaravel extends Command
     /**
      * Commit any changes in the current working directory.
      *
-     * @param  string  $message
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function commitChanges(string $message, string $directory, InputInterface $input, OutputInterface $output)
@@ -666,10 +630,6 @@ class NewCommandLaravel extends Command
     /**
      * Create a GitHub repository and push the git log to it.
      *
-     * @param  string  $name
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function pushToGitHub(string $name, string $directory, InputInterface $input, OutputInterface $output)
@@ -733,7 +693,6 @@ class NewCommandLaravel extends Command
     /**
      * Get the version that should be downloaded.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return string
      */
     protected function getVersion(InputInterface $input)
@@ -793,13 +752,9 @@ class NewCommandLaravel extends Command
      * Run the given commands.
      *
      * @param  array  $commands
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @param  string|null  $workingPath
-     * @param  array  $env
      * @return \Symfony\Component\Process\Process
      */
-    protected function runCommands($commands, InputInterface $input, OutputInterface $output, string $workingPath = null, array $env = [])
+    protected function runCommands($commands, InputInterface $input, OutputInterface $output, ?string $workingPath = null, array $env = [])
     {
         if (! $output->isDecorated()) {
             $commands = array_map(function ($value) {
@@ -849,8 +804,6 @@ class NewCommandLaravel extends Command
     /**
      * Replace the given file.
      *
-     * @param  string  $replace
-     * @param  string  $file
      * @return void
      */
     protected function replaceFile(string $replace, string $file)
@@ -866,9 +819,6 @@ class NewCommandLaravel extends Command
     /**
      * Replace the given string in the given file.
      *
-     * @param  string|array  $search
-     * @param  string|array  $replace
-     * @param  string  $file
      * @return void
      */
     protected function replaceInFile(string|array $search, string|array $replace, string $file)
@@ -884,7 +834,6 @@ class NewCommandLaravel extends Command
      *
      * @param  string|array  $search
      * @param  string|array  $replace
-     * @param  string  $file
      * @return void
      */
     protected function pregReplaceInFile(string $pattern, string $replace, string $file)
