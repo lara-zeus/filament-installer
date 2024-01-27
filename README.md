@@ -1,26 +1,34 @@
-# Laravel Installer
+# Filament Installer
 
-<a href="https://github.com/laravel/installer/actions"><img src="https://github.com/laravel/installer/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/installer"><img src="https://img.shields.io/packagist/dt/laravel/installer" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/installer"><img src="https://img.shields.io/packagist/v/laravel/installer" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/installer"><img src="https://img.shields.io/packagist/l/laravel/installer" alt="License"></a>
+<a href="https://github.com/lara-zeus/filament-installer/actions"><img src="https://github.com/lara-zeus/filament-installer/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/lara-zeus/filament-installer"><img src="https://img.shields.io/packagist/dt/lara-zeus/filament-installer" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/lara-zeus/filament-installer"><img src="https://img.shields.io/packagist/v/lara-zeus/filament-installer" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/lara-zeus/filament-installer"><img src="https://img.shields.io/packagist/l/lara-zeus/filament-installer" alt="License"></a>
 
-## Official Documentation
+## Note:
 
-Documentation for installing Laravel can be found on the [Laravel website](https://laravel.com/docs#creating-a-laravel-project).
+This is a fork from [Laravel Installer](https://github.com/laravel/installer), and I only added the filament instalation with a defualt panel and crete a user for you.
 
-## Contributing
+> any feedbacks are welcome
 
-Thank you for considering contributing to the Installer! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Installation
 
-## Code of Conduct
+`composer global require lara-zeus/filament-installer`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Usage:
 
-## Security Vulnerabilities
+from your terminal run the command:
 
-Please review [our security policy](https://github.com/laravel/installer/security/policy) on how to report security vulnerabilities.
+`filament new app`
 
-## License
+follow the steps, and you're done.
 
-Laravel Installer is open-sourced software licensed under the [MIT license](LICENSE.md).
+### this will do:
+
+- install laravel
+- setup the database (tested in MySql only)
+- install filament
+- create default panel called "admin"
+- create a new user in the DB with the email: "admin@app.com" and the password: "password"
+
+> still in beta feel free to open an issue or send a PR 🙏🏽
