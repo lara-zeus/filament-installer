@@ -1,0 +1,43 @@
+{
+    "name": "lara-zeus/installer",
+    "description": "filament application installer.",
+    "keywords": ["filamentphp"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "php coder",
+            "email": "info@larazeus.com",
+            "role": "Owner"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/filesystem": "^10.20|^11.0",
+        "illuminate/support": "^10.20|^11.0",
+        "laravel/prompts": "^0.1",
+        "symfony/console": "^6.2|^7.0",
+        "symfony/process": "^6.2|^7.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^10.4"
+    },
+    "bin": [
+        "bin/filament"
+    ],
+    "autoload": {
+        "psr-4": {
+            "LaraZeus\\Installer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaraZeus\\Installer\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
