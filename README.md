@@ -13,7 +13,7 @@ This is a fork from [Laravel Installer](https://github.com/laravel/installer), a
 
 ## Installation
 
-`composer global require lara-zeus/filament-installer`
+`composer global require lara-zeus/installer`
 
 ## Usage:
 
