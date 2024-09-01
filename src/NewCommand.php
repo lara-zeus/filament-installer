@@ -140,7 +140,7 @@ class NewCommand extends Command
 
         $directory = $name !== '.' ? getcwd().'/'.$name : '.';
 
-        $this->composer = new Composer(new Filesystem(), $directory);
+        $this->composer = new Composer(new Filesystem, $directory);
 
         $version = $this->getVersion($input);
 
