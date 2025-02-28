@@ -24,6 +24,7 @@ class NewCommand extends Command
 {
     use Concerns\ConfiguresPrompts;
     use Concerns\InteractsWithHerdOrValet;
+    use Concerns\FilamentInstaller;
 
     /**
      * The Composer instance.
