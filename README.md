@@ -1,9 +1,9 @@
 # Filament Installer
 
-<a href="https://github.com/lara-zeus/filament-installer/actions"><img src="https://github.com/lara-zeus/filament-installer/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/lara-zeus/filament-installer"><img src="https://img.shields.io/packagist/dt/lara-zeus/filament-installer" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/lara-zeus/filament-installer"><img src="https://img.shields.io/packagist/v/lara-zeus/filament-installer" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/lara-zeus/filament-installer"><img src="https://img.shields.io/packagist/l/lara-zeus/filament-installer" alt="License"></a>
+<a href="https://github.com/lara-zeus/installer/actions"><img src="https://github.com/lara-zeus/installer/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/lara-zeus/installer"><img src="https://img.shields.io/packagist/dt/lara-zeus/installer" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/lara-zeus/installer"><img src="https://img.shields.io/packagist/v/lara-zeus/installer" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/lara-zeus/installer"><img src="https://img.shields.io/packagist/l/lara-zeus/installer" alt="License"></a>
 
 ## Note:
 
