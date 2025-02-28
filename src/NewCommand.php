@@ -17,6 +17,7 @@ use Symfony\Component\Process\Process;
 
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\select;
+use function Laravel\Prompts\spin;
 use function Laravel\Prompts\text;
 
 class NewCommand extends Command
@@ -301,6 +302,11 @@ class NewCommand extends Command
                 $this->installPest($directory, $input, $output);
             }
 
+            spin(
+                fn () => $this->installFilament($directory, $input, $output),
+                'installing Filament ...'
+            );
+
             if ($input->getOption('github') !== false) {
                 $this->pushToGitHub($name, $directory, $input, $output);
                 $output->writeln('');
@@ -312,6 +318,14 @@ class NewCommand extends Command
                 $output->writeln('');
             }
 
+            $output->writeln("<bg=blue;fg=white> INFO </> Login Information=bold>[{$name}]</>:".PHP_EOL);
+            $output->writeln("<fg=gray>➜</> Email Address:<options=bold>admin@{$name}.com</>");
+            $output->writeln('<fg=gray>➜</> Password:<options=bold>password</>');
+            $output->writeln('');
+
+            $output->writeln('  New to Filament? Check out our <href=https://filamentphp.com/docs>documentation</>. <options=bold>Build something amazing!</>');
+            $output->writeln('');
+            
             $runNpm = $input->getOption('npm');
 
             if (! $input->getOption('npm') && $input->isInteractive()) {
