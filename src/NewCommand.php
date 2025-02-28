@@ -147,7 +147,7 @@ class NewCommand extends Command
             if ($input->getOption('livewire') && ! $input->getOption('workos')) {
                 $input->setOption('livewire-class-components', ! confirm(
                     label: 'Would you like to use Laravel Volt?',
-                    default: true,
+                    default: false,
                 ));
             }
         }
