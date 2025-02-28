@@ -9,15 +9,13 @@ trait FilamentInstaller
 {
     /**
      * Install FilamentPHP into the application.
-     *
-     * @return void
      */
     protected function installFilament(string $directory, InputInterface $input, OutputInterface $output): void
     {
         $name = $input->getArgument('name');
 
         $commands = array_filter([
-            $this->findComposer().' require filament/filament', //--quiet
+            $this->findComposer().' require filament/filament', // --quiet
             $this->phpBinary().' artisan filament:install --panels', // --no-interaction --quiet
         ]);
 
