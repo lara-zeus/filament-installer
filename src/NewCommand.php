@@ -23,8 +23,8 @@ use function Laravel\Prompts\text;
 class NewCommand extends Command
 {
     use Concerns\ConfiguresPrompts;
-    use Concerns\InteractsWithHerdOrValet;
     use Concerns\FilamentInstaller;
+    use Concerns\InteractsWithHerdOrValet;
 
     /**
      * The Composer instance.
@@ -64,8 +64,6 @@ class NewCommand extends Command
     /**
      * Interact with the user before validating the input.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function interact(InputInterface $input, OutputInterface $output)
@@ -169,9 +167,6 @@ class NewCommand extends Command
     /**
      * Ensure that the required PHP extensions are installed.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @return void
      *
      * @throws \RuntimeException
      */
@@ -200,10 +195,6 @@ class NewCommand extends Command
 
     /**
      * Execute the command.
-     *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -213,7 +204,7 @@ class NewCommand extends Command
 
         $directory = $this->getInstallationDirectory($name);
 
-        $this->composer = new Composer(new Filesystem(), $directory);
+        $this->composer = new Composer(new Filesystem, $directory);
 
         $version = $this->getVersion($input);
 
@@ -326,7 +317,7 @@ class NewCommand extends Command
 
             $output->writeln('  New to Filament? Check out our <href=https://filamentphp.com/docs>documentation</>. <options=bold>Build something amazing!</>');
             $output->writeln('');
-            
+
             $runNpm = $input->getOption('npm');
 
             if (! $input->getOption('npm') && $input->isInteractive()) {
@@ -380,9 +371,6 @@ class NewCommand extends Command
     /**
      * Configure the default database connection.
      *
-     * @param  string  $directory
-     * @param  string  $database
-     * @param  string  $name
      * @return void
      */
     protected function configureDefaultDatabaseConnection(string $directory, string $database, string $name)
@@ -449,9 +437,6 @@ class NewCommand extends Command
 
     /**
      * Determine if the application is using Laravel 11 or newer.
-     *
-     * @param  string  $directory
-     * @return bool
      */
     public function usingLaravelVersionOrNewer(int $usingVersion, string $directory): bool
     {
@@ -464,9 +449,6 @@ class NewCommand extends Command
 
     /**
      * Comment the irrelevant database configuration entries for SQLite applications.
-     *
-     * @param  string  $directory
-     * @return void
      */
     protected function commentDatabaseConfigurationForSqlite(string $directory): void
     {
@@ -494,7 +476,6 @@ class NewCommand extends Command
     /**
      * Uncomment the relevant database configuration entries for non SQLite applications.
      *
-     * @param  string  $directory
      * @return void
      */
     protected function uncommentDatabaseConfiguration(string $directory)
@@ -523,8 +504,6 @@ class NewCommand extends Command
     /**
      * Determine the default database connection.
      *
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return array
      */
     protected function promptForDatabaseOptions(string $directory, InputInterface $input)
@@ -561,8 +540,6 @@ class NewCommand extends Command
 
     /**
      * Get the available database options.
-     *
-     * @return array
      */
     protected function databaseOptions(): array
     {
@@ -593,8 +570,6 @@ class NewCommand extends Command
     /**
      * Install Pest into the application.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function installPest(string $directory, InputInterface $input, OutputInterface $output)
@@ -646,9 +621,6 @@ class NewCommand extends Command
     /**
      * Create a Git repository and commit the base Laravel skeleton.
      *
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function createRepository(string $directory, InputInterface $input, OutputInterface $output)
@@ -668,10 +640,6 @@ class NewCommand extends Command
     /**
      * Commit any changes in the current working directory.
      *
-     * @param  string  $message
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function commitChanges(string $message, string $directory, InputInterface $input, OutputInterface $output)
@@ -691,10 +659,6 @@ class NewCommand extends Command
     /**
      * Create a GitHub repository and push the git log to it.
      *
-     * @param  string  $name
-     * @param  string  $directory
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     protected function pushToGitHub(string $name, string $directory, InputInterface $input, OutputInterface $output)
@@ -720,9 +684,6 @@ class NewCommand extends Command
 
     /**
      * Configure the Composer "dev" script.
-     *
-     * @param  string  $directory
-     * @return void
      */
     protected function configureComposerDevScript(string $directory): void
     {
@@ -799,7 +760,6 @@ class NewCommand extends Command
     /**
      * Get the installation directory.
      *
-     * @param  string  $name
      * @return string
      */
     protected function getInstallationDirectory(string $name)
@@ -810,7 +770,6 @@ class NewCommand extends Command
     /**
      * Get the version that should be downloaded.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return string
      */
     protected function getVersion(InputInterface $input)
@@ -852,10 +811,6 @@ class NewCommand extends Command
      * Run the given commands.
      *
      * @param  array  $commands
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @param  string|null  $workingPath
-     * @param  array  $env
      * @return \Symfony\Component\Process\Process
      */
     protected function runCommands($commands, InputInterface $input, OutputInterface $output, ?string $workingPath = null, array $env = [])
@@ -900,8 +855,6 @@ class NewCommand extends Command
     /**
      * Replace the given file.
      *
-     * @param  string  $replace
-     * @param  string  $file
      * @return void
      */
     protected function replaceFile(string $replace, string $file)
@@ -917,9 +870,6 @@ class NewCommand extends Command
     /**
      * Replace the given string in the given file.
      *
-     * @param  string|array  $search
-     * @param  string|array  $replace
-     * @param  string  $file
      * @return void
      */
     protected function replaceInFile(string|array $search, string|array $replace, string $file)
@@ -935,7 +885,6 @@ class NewCommand extends Command
      *
      * @param  string|array  $search
      * @param  string|array  $replace
-     * @param  string  $file
      * @return void
      */
     protected function pregReplaceInFile(string $pattern, string $replace, string $file)
@@ -949,7 +898,6 @@ class NewCommand extends Command
     /**
      * Delete the given file.
      *
-     * @param  string  $file
      * @return void
      */
     protected function deleteFile(string $file)
