@@ -7,7 +7,7 @@
 
 ## Note:
 
-This is a fork from [Laravel Installer](https://github.com/laravel/installer), and I only added the filament instalation with a defualt panel and crete a user for you.
+This is a fork from [Laravel Installer](https://github.com/laravel/installer), and I only added the filament installation with a defualt panel and crete a user for you.
 
 > any feedbacks are welcome
 
