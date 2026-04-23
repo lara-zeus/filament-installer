@@ -29,7 +29,7 @@ class NewCommand extends Command
     /**
      * The Composer instance.
      *
-     * @var \Illuminate\Support\Composer
+     * @var Composer
      */
     protected $composer;
 
@@ -168,7 +168,7 @@ class NewCommand extends Command
      * Ensure that the required PHP extensions are installed.
      *
      *
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
     protected function ensureExtensionsAreAvailable(InputInterface $input, OutputInterface $output): void
     {
@@ -188,7 +188,7 @@ class NewCommand extends Command
             return;
         }
 
-        throw new \RuntimeException(
+        throw new RuntimeException(
             sprintf('The following PHP extensions are required but are not installed: %s', $missingExtensions->join(', ', ', and '))
         );
     }
@@ -728,7 +728,7 @@ class NewCommand extends Command
     /**
      * Determine if a starter kit is being used.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface
+     * @param  InputInterface
      * @return bool
      */
     protected function usingStarterKit(InputInterface $input)
@@ -811,7 +811,7 @@ class NewCommand extends Command
      * Run the given commands.
      *
      * @param  array  $commands
-     * @return \Symfony\Component\Process\Process
+     * @return Process
      */
     protected function runCommands($commands, InputInterface $input, OutputInterface $output, ?string $workingPath = null, array $env = [])
     {

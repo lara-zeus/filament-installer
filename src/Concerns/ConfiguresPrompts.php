@@ -100,7 +100,7 @@ trait ConfiguresPrompts
      * @param  \Closure  $prompt
      * @param  bool|string  $required
      * @param  \Closure|null  $validate
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
+     * @param  OutputInterface  $output
      * @return mixed
      */
     protected function promptUntilValid($prompt, $required, $validate, $output)
