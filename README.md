@@ -32,3 +32,12 @@ follow the steps, and you're done.
 - create a new user in the DB with the email: "admin@app.com" and the password: "password"
 
 > still in beta feel free to open an issue or send a PR 🙏🏽
+
+## Versions
+
+| Plugin Version | Filament Version |
+| --- | --- |
+| `v1.x` | `v2.x` |
+| `v2.x` | `v3.x` |
+| `v3.x` | `v3.x` |
+
