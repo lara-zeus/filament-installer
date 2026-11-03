@@ -19,7 +19,7 @@
         "symfony/process": "^6.2|^7.0"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan": "^2.3",
         "phpunit/phpunit": "^10.4"
     },
     "bin": [
